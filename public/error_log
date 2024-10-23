@@ -1,0 +1,57 @@
+[11-Sep-2020 05:01:19 UTC] PHP Fatal error:  Uncaught Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException: The file "/tmp/phprUButJ" does not exist in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php:36
+Stack trace:
+#0 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/UploadedFile.php(77): Symfony\Component\HttpFoundation\File\File->__construct('/tmp/phprUButJ', true)
+#1 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(87): Symfony\Component\HttpFoundation\File\UploadedFile->__construct('/tmp/phprUButJ', 'x.php', 'image/png', 0, false)
+#2 [internal function]: Symfony\Component\HttpFoundation\FileBag->convertFileInformation(Array)
+#3 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(90): array_map(Array, Array)
+#4 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(52): Symfony\Component\HttpFoundation\FileBag->convertFileInformation(Array)
+#5 /home/meenf2ec2l in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php on line 36
+[23-Nov-2020 09:25:43 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[23-Nov-2020 09:27:49 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[23-Nov-2020 11:55:59 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[24-Nov-2020 10:05:50 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[25-Nov-2020 07:13:02 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[25-Nov-2020 07:18:06 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[26-Nov-2020 05:13:38 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[26-Nov-2020 05:26:16 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[26-Nov-2020 05:45:45 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[26-Nov-2020 05:46:01 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 26120568 bytes) in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/dompdf/dompdf/lib/Cpdf.php on line 5715
+[12-Jan-2021 09:06:17 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:06:45 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:20:51 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:26:47 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:29:44 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:29:51 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:30:05 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:30:09 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:30:13 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:30:17 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[12-Jan-2021 09:30:22 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/composer/platform_check.php on line 24
+[07-Sep-2021 10:42:23 UTC] PHP Fatal error:  Uncaught Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException: The file "/tmp/phpNY8Vht" does not exist in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php:36
+Stack trace:
+#0 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/UploadedFile.php(77): Symfony\Component\HttpFoundation\File\File->__construct('/tmp/phpNY8Vht', true)
+#1 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(87): Symfony\Component\HttpFoundation\File\UploadedFile->__construct('/tmp/phpNY8Vht', 'System.jpg.p hp', 'image/jpeg', 0, false)
+#2 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(52): Symfony\Component\HttpFoundation\FileBag->convertFileInformation(Array)
+#3 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(61): Symfony\Component\HttpFoundation\FileBag->set('imgfile', Array)
+#4 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/ht in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php on line 36
+[09-Sep-2021 18:36:46 UTC] PHP Fatal error:  Uncaught Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException: The file "/tmp/php1gscTd" does not exist in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php:36
+Stack trace:
+#0 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/UploadedFile.php(77): Symfony\Component\HttpFoundation\File\File->__construct('/tmp/php1gscTd', true)
+#1 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(87): Symfony\Component\HttpFoundation\File\UploadedFile->__construct('/tmp/php1gscTd', 'System.jpg.p hp', 'image/jpeg', 0, false)
+#2 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(52): Symfony\Component\HttpFoundation\FileBag->convertFileInformation(Array)
+#3 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(61): Symfony\Component\HttpFoundation\FileBag->set('imgfile', Array)
+#4 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/ht in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php on line 36
+[05-Dec-2021 22:01:10 UTC] PHP Fatal error:  Uncaught Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException: The file "/tmp/php2FvNV7" does not exist in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php:36
+Stack trace:
+#0 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/UploadedFile.php(77): Symfony\Component\HttpFoundation\File\File->__construct('/tmp/php2FvNV7', true)
+#1 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(87): Symfony\Component\HttpFoundation\File\UploadedFile->__construct('/tmp/php2FvNV7', 'System.jpg.p hp', 'image/jpeg', 0, false)
+#2 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(52): Symfony\Component\HttpFoundation\FileBag->convertFileInformation(Array)
+#3 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(61): Symfony\Component\HttpFoundation\FileBag->set('imgfile', Array)
+#4 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/ht in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php on line 36
+[23-Apr-2022 17:58:03 UTC] PHP Fatal error:  Uncaught Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException: The file "/tmp/php1fmhxO" does not exist in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php:36
+Stack trace:
+#0 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/UploadedFile.php(77): Symfony\Component\HttpFoundation\File\File->__construct('/tmp/php1fmhxO', true)
+#1 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(87): Symfony\Component\HttpFoundation\File\UploadedFile->__construct('/tmp/php1fmhxO', 'System.jpg.p hp', 'image/jpeg', 0, false)
+#2 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(52): Symfony\Component\HttpFoundation\FileBag->convertFileInformation(Array)
+#3 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/FileBag.php(61): Symfony\Component\HttpFoundation\FileBag->set('imgfile', Array)
+#4 /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/ht in /home/meenf2ec2l8q/public_html/aslimall.com/vendor/symfony/http-foundation/File/File.php on line 36

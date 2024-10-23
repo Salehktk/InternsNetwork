@@ -1,0 +1,78 @@
+
+
+.card.bg-info {
+    background: orangered!important;
+    color: white!important;
+}
+
+.bg-light>a {
+    color: #fff!important;
+}
+.bg-warning>a {
+    color: #fff!important;
+}
+.bg-success>a {
+    color: #fff!important;
+}
+
+.bg-info {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-warning {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-primary {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-secondary {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-light {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-success {
+    background: orangered!important;
+    color: white!important;
+}
+
+
+.btn-info {
+    background: orangered!important;
+    border: orangered!important;
+}
+
+.btn-success {
+    background: orangered!important;
+    border: orangered!important;
+}
+
+.btn-primary {
+    background: orangered!important;
+    border: orangered!important;
+}
+
+.btn-warning {
+    background: orangered!important;
+    border: orangered!important;
+}
+
+.btn-danger {
+    background: orangered!important;
+    border: orangered!important;
+}
+
+/* .active {
+    background: orangered!important;
+    border: orangered!important;
+    color: white!important;
+}
+
+.badge-primary{
+        background: orangered!important;
+    border: orangered!important;
+} */

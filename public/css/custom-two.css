@@ -1,0 +1,197 @@
+
+
+
+.container {
+    max-width: 900px;
+    width: 600%;
+    padding: 20px;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none !important;
+}
+
+small {
+    display: block;
+    margin-top: -8px;
+    margin-bottom: 16px;
+    color: #888;
+}
+
+
+.datepicker {
+    width: 100%;
+    max-width: 330px;
+    margin: 0 auto;
+}
+
+.datepicker table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.datepicker th, .datepicker td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.datepicker th {
+    font-weight: bold;
+    background-color: #f5f5f5;
+}
+
+.datepicker td {
+    cursor: pointer;
+}
+
+.datepicker td:hover {
+    background-color: #e5e5e5;
+}
+
+.datepicker .today {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.datepicker .active, .datepicker .active:hover, .datepicker .active.disabled, .datepicker .active.disabled:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: not-allowed;
+}
+
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.iti {
+    display: block !important;
+}
+.card.bg-info {
+    background: orangered!important;
+    color: white!important;
+}
+aside .nav-link.active:hover {
+    background-color: #007bff !important;
+    color: white !important;
+}
+
+.bg-light>a {
+    color: #fff!important;
+}
+.bg-warning>a {
+    color: #fff!important;
+}
+.bg-success>a {
+    color: #fff!important;
+}
+
+.bg-info {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-warning {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-primary {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-secondary {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-light {
+    background: orangered!important;
+    color: white!important;
+}
+.bg-success {
+    background: orangered!important;
+    color: white!important;
+}
+
+
+.btn-info {
+    background: orangered!important;
+    border: orangered!important;
+}
+/* 
+.btn-success {
+    background: orangered!important;
+    border: orangered!important;
+}
+
+.btn-primary {
+    background: orangered!important;
+    border: orangered!important;
+} */
+
+.btn-warning {
+    background: orangered!important;
+    border: orangered!important;
+}
+
+.btn-danger {
+    background: orangered!important;
+    border: orangered!important;
+}
+
+.active {
+    /* background: orangered!important;*/
+    border: orangered!important; 
+    color: white!important;
+}
+
+.badge-primary{
+        background: orangered!important;
+    border: orangered!important;
+}
+.delete-form {
+    display: inline; /* Ensures the form is inline with other elements */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    border: none; /* Removes default border */
+    background: none; /* Removes default background */
+}
