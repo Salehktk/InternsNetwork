@@ -8,11 +8,6 @@ use App\Http\Controllers\Api\CoachServicesController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Services\CoachServices;
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,10 +19,20 @@ use App\Services\CoachServices;
 |
 */
 Route::get('/testAPI', [GoogleAuthController::class, 'test']);
-Route::get('/dashboard', [serviceApiController::class, 'allServices'])->name('allCoachServices');
+Route::get('/services', [serviceApiController::class, 'allServices'])->name('allCoachServices');
+Route::get('/coaches', [serviceApiController::class, 'allCoaches']);
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+// Route::middleware('auth:sanctum')->group(function () {
+//     Route::get('/servicess', [ServiceApiController::class, 'allServices'])->name('allServices');
+// });
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/servicess', [ServiceApiController::class, 'allServices'])->name('allServices');
+});
+
 
 
 Route::post('/login', [serviceApiController::class, 'login']);
