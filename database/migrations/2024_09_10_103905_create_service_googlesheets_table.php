@@ -14,6 +14,13 @@ return new class extends Migration
         Schema::create('service_googlesheets', function (Blueprint $table) {
             $table->id();
             $table->string('service_name');
+            $table->string('display_order')->nullable();
+            $table->string('subscriber_level')->nullable();
+            $table->string('service_type')->nullable();
+            $table->string('service_price')->nullable();
+            $table->longText('service_description')->nullable();
+            $table->longText('service_image')->nullable();
+            $table->longText('service_bio')->nullable();
             $table->timestamps();
         });
     }

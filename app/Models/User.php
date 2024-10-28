@@ -16,7 +16,7 @@ use Illuminate\Contracts\Auth\CanResetPassword;
 use Auth;
 use Laravel\Cashier\Billable;
 
-class User extends Authenticatable implements CanResetPassword
+class User extends Authenticatable 
 {
     use HasApiTokens, HasFactory, Notifiable, HasRoles ;
 

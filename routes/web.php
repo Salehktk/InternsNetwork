@@ -5,19 +5,11 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AliasController;
-use App\Http\Controllers\SheetController;
-use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\CoachDataController;
-use App\Http\Controllers\CoachResumeController;
 use App\Http\Controllers\SheetCoachServiceController;
-use App\Http\Controllers\CoachServicesController;
 use App\Http\Controllers\GoogleServiceController;
-use App\Http\Controllers\StripeWebhookController;
 use App\Http\Controllers\Api\GoogleAuthController;
-
-use App\Http\Controllers\Api\serviceApiController;
 use Illuminate\Support\Facades\File;
+
 
 
 /*
@@ -64,6 +56,9 @@ Route::get('migrate-seed', function () {
     return "Migrations and seeders executed successfully";
 });
 
+
+// Route::get('/import-services-sheet', [SheetCoachServiceController::class, 'importServicesheetDirectly']);
+
 // Route::get('/', [CoachServicesController::class, 'index'])->name('home');
 
 Route::get('/.well-known/apple-app-site-association', function() {
@@ -94,24 +89,16 @@ Route::group(['middleware' => 'auth'], function () {
    
 });
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
 
 
 Route::get('/logout', [GoogleServiceController::class, 'logout'])->name('logout');
-
+Route::get('/import-services', [SheetCoachServiceController::class, 'importServicesheet'])->name('importServicesheet');
 Auth::routes();
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
-
-//////.......superadmin.........////////
 
 Route::group(['middleware' => ['auth', 'role:superadmin'], 'prefix' => 'superadmin' ], function () {
 
     Route::get('/import-coach', [SheetCoachServiceController::class, 'importCoachsheet'])->name('importCoachsheet');
-    Route::get('/import-services', [SheetCoachServiceController::class, 'importServicesheet'])->name('importServicesheet');
+    
     Route::get('/all/service/header', [SheetCoachServiceController::class, 'AllserviceImport'])->name('AllserviceImport');
     Route::get('/service/show', [SheetCoachServiceController::class, 'serviceShow'])->name('serviceShow');
     Route::get('/coach/show', [SheetCoachServiceController::class, 'coachShow'])->name('coachShow');
