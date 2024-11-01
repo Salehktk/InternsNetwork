@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use PhpOffice\PhpWord\Shared\Validate;
 use App\Models\AllService;
+use App\Models\ServiceGooglesheet;
+use App\Models\CoachGooglesheet;
 
 
 class serviceApiController extends Controller
@@ -86,7 +88,7 @@ class serviceApiController extends Controller
         try {
          
             $user = $request->user();
-            dd($user);
+            // dd($user);
             if ($user) {
               
                 $user->tokens()->delete();
@@ -111,34 +113,65 @@ class serviceApiController extends Controller
     ////-----all services------///////
 
 
-     public function allServices()
+     public function allServices(Request $request)
     {
-
-        // dd('here');
-        $allServices = AllService::with(['allservice.serviceBelongtopivot'])
-        ->select('id', 'name_of_service', 'service')
-        ->get();
-    
-        $allServiceNames = $allServices->flatMap(function ($service) {
-        return $service->allservice->map(function ($item) {
-            return optional($item->serviceBelongtopivot)->service_name;
-        });
-        })->unique(); 
-
- 
-            $valuesArray = $allServices->flatMap(function ($service) {
-            return $service->allservice->map(function ($item) {
-                return $item->value;
-            });
-            
-        });
-        // dd( $allServiceNames, $valuesArray );
+        $allService = ServiceGooglesheet::get();
 
         return response()->json([
         'status' => 'success',
-        'services' => $allServiceNames->values()->toArray(), 
-        'values' => $valuesArray->toArray(), 
+        'services' => $allService, 
+        
      ], 200);
     }
 
+    public function singleServiceShow($id)
+{
+    $singleService = ServiceGooglesheet::find($id);
+    
+    if ($singleService) {
+        return response()->json([
+            'status' => 'success',
+            'service' => $singleService,
+        ], 200);
+    } else {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Service not found.',
+        ], 404);
+    }
+}
+
+
+
+     public function allCoaches(Request $request)
+    {
+        $allCoaches = CoachGooglesheet::get();
+        
+        return response()->json([
+        'status' => 'success',
+        'coaches' => $allCoaches, 
+        
+     ], 200);
+    }
+
+  public function singleCoachShow($id){
+
+     $singleCoach = CoachGooglesheet::find($id);
+    
+    if ($singleCoach) {
+
+        return response()->json([
+            'status' => 'success',
+            'coach' => $singleCoach,
+        ], 200);
+
+    } else {
+
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Coach not found.',
+        ], 404);
+        
+    }
+ }
 }

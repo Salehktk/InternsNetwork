@@ -11,7 +11,8 @@ class CoachGooglesheet extends Model
 
     protected $table = 'coach_googlesheets';
 
-
+    protected $guarded = [];
+    
     public function services()
     {
         return $this->HasMany(CoachService::class,  'coach_id' );

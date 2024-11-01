@@ -19,66 +19,6 @@ class SheetCoachServiceController extends Controller
 
     public function importCoachsheet()
     {
-
-        $client = new Google_Client();
-        putenv('GOOGLE_APPLICATION_CREDENTIALS=' . storage_path('app/googlesheet/credentials.json'));
-        $client->setAuthConfig(storage_path('app/googlesheet/credentials.json'));
-        $client->setScopes(['https://www.googleapis.com/auth/spreadsheets']);
-    
-        // Initialize the Google Sheets Service
-        $service = new Google_Service_Sheets($client);
-    
-        // Define the Spreadsheet ID and Range
-        $spreadsheetId = '16GP46laLDNXehK0doJn5PBpoINGj6N-nq268ZlWHAMM';
-        $range = 'Services!D2:GC9';
-    
-        try {
-            // Fetch data from the specified range
-            $response = $service->spreadsheets_values->get($spreadsheetId, $range);
-            $values = $response->getValues();
-    
-            // Check if data is available
-            if (empty($values)) {
-                return response()->json([
-                    'message' => 'No data found in the spreadsheet.',
-                ], 404);
-            }
-    
-            // Loop through the values and save to the database
-            foreach ($values[0] as $index => $service_name) {
-                ServiceGooglesheet::create([
-                    'service_name' => $service_name,
-                    'display_order' => $values[1][$index] ?? null,
-                    'subscriber_level' => $values[2][$index] ?? null,
-                    'service_type' => $values[3][$index] ?? null,
-                    'service_price' => $values[4][$index] ?? null,
-                    'service_description' => $values[5][$index] ?? null,
-                    'service_image' => $values[6][$index] ?? null,
-                    'service_bio' => $values[7][$index] ?? null,
-                    // Add more fields if needed
-                ]);
-            }
-    
-            return response()->json([
-                'message' => 'Data imported successfully.',
-            ], 200);
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => 'Failed to fetch data from Google Sheets.',
-                'error' => $e->getMessage(),
-            ], 500);
-        }
-
-
-
-
-
-
-
-
-
-
-
         $sheetId = '16GP46laLDNXehK0doJn5PBpoINGj6N-nq268ZlWHAMM';
         $sheetName = 'Coach';
         $coachSheet = Sheets::spreadsheet($sheetId)->sheet($sheetName)->get();
@@ -120,7 +60,6 @@ class SheetCoachServiceController extends Controller
 
 
         foreach ($coachDataFromRow3 as $key => $header) {
-
             $coachdata = new CoachGooglesheet();
 
             foreach ($coachHeader as $key2 => $OrignaleHeader) {
@@ -143,102 +82,50 @@ class SheetCoachServiceController extends Controller
 
 
 
-    // public function importServicesheet()
-    // {
-    //     $sheetId = '16GP46laLDNXehK0doJn5PBpoINGj6N-nq268ZlWHAMM';
-    //     $sheetName = 'Coach';
-    //     $coachSheet = Sheets::spreadsheet($sheetId)->sheet($sheetName)->get();
-    //     $coachDataFromRow3 = array_slice($coachSheet->toArray(), 4);
+    public function importServicesheet()
+    {
+        $sheetId = '16GP46laLDNXehK0doJn5PBpoINGj6N-nq268ZlWHAMM';
+        $sheetName = 'Coach';
+        $coachSheet = Sheets::spreadsheet($sheetId)->sheet($sheetName)->get();
+        $coachDataFromRow3 = array_slice($coachSheet->toArray(), 4);
 
-    //     $coachHeader = $coachSheet->pull(0);
+        $coachHeader = $coachSheet->pull(0);
 
-   
+        $headerMapping = ServiceGooglesheet::pluck('service_name', 'service_name')->toArray();
 
-    //     $headerMapping = ServiceGooglesheet::pluck('service_name', 'service_name')->toArray();
-
-    //     foreach ($coachDataFromRow3 as $key => $header) {
+        foreach ($coachDataFromRow3 as $key => $header) {
          
-    //         foreach ($coachHeader as $key2 => $OrignaleHeader) {
 
-    //             $OrignaleHeader = trim($OrignaleHeader);
+            foreach ($coachHeader as $key2 => $OrignaleHeader) {
 
-    //             if (array_key_exists($OrignaleHeader, $headerMapping) && isset($header[$key2])) {
+                $OrignaleHeader = trim($OrignaleHeader);
 
-    //                 $dbColumn = $headerMapping[$OrignaleHeader];
-    //                 if(!empty($header[$key2])){
+                if (array_key_exists($OrignaleHeader, $headerMapping) && isset($header[$key2])) {
 
-    //                     $coachdata = new CoachService();
+                    $dbColumn = $headerMapping[$OrignaleHeader];
+                    if(!empty($header[$key2])){
 
-    //                     $coachdata->coach_id =  $key+1;
-    //                     $serviceId = ServiceGooglesheet::where('service_name', $dbColumn)->pluck('id')->first();
-    //                     $coachdata->service_id =  $serviceId;
-    //                     $coachdata->save();
+                        $coachdata = new CoachService();
 
-    //                 }
-    //             }
-    //         }
+                        $coachdata->coach_id =  $key+1;
+                        $serviceId = ServiceGooglesheet::where('service_name', $dbColumn)->pluck('id')->first();
+
+                        $coachdata->service_id =  $serviceId;
+                        $coachdata->save();
+
+                    }
+                
+                }
+            }
 
            
-    //     }
+        }
         
-    //     return true;
-    // }
+        return true;
+    }
 
 
-       
-// public function importServicesheetDirectly()
-// {
-//     $client = new Google_Client();
-//     putenv('GOOGLE_APPLICATION_CREDENTIALS=' . storage_path('app/googlesheet/credentials.json')); // Set environment variable
-//     $client->setAuthConfig(storage_path('app/googlesheet/credentials.json')); // Path to credentials.json
-//     // $client->setScopes(['https://www.googleapis.com/auth/spreadsheets.readonly']); // Set correct scopes
-//    $client->setScopes(['https://www.googleapis.com/auth/spreadsheets']);
-//     // dd($client);
-//     // Initialize the Google Sheets Service
-//     $service = new Google_Service_Sheets($client);
-
-//     // Define the Spreadsheet ID and Range
-//     $spreadsheetId = '16GP46laLDNXehK0doJn5PBpoINGj6N-nq268ZlWHAMM';
-//     // $range = 'Services!D2:GC9';
-//      $range = 'Services!D2:F9';
-
-//     try {
-//         // Fetch data from the specified range
-//         $response = $service->spreadsheets_values->get($spreadsheetId, $range);
-//         $values = $response->getValues();
-
-//         dd($values);
-
-//         foreach($values as $key1 => $singleValue){
-//             dd($singleValue);
-//              foreach($singleValue as $key2 => $single){
-           
-//              }
-
-//         }
-//         // Debugging output to check if data is being fetched
-//         // dd($values);
-
-//         // Check if data is available
-//         // if (empty($values)) {
-//         //     return response()->json([
-//         //         'message' => 'No data found in the spreadsheet.',
-//         //     ], 404);
-//         // } else {
-//         //     return response()->json([
-//         //         'data' => $values,
-//         //     ], 200);
-//         // }
-//     } catch (\Exception $e) {
-//         // Handle errors
-//         return response()->json([
-//             'message' => 'Failed to fetch data from Google Sheets.',
-//             'error' => $e->getMessage(),
-//         ], 500);
-//     }
-// }
-
-public function importServicesheet()
+public function importServicesheetDirectly()
 {
     $client = new Google_Client();
     putenv('GOOGLE_APPLICATION_CREDENTIALS=' . storage_path('app/googlesheet/credentials.json'));

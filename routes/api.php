@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\serviceApiController;
-use App\Http\Controllers\Api\GoogleAuthController;
-use App\Http\Controllers\Api\CoachServicesController;
-use App\Http\Controllers\Auth\ResetPasswordController;
-use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Services\CoachServices;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\SearchController;
+use App\Http\Controllers\Api\GoogleAuthController;
+use App\Http\Controllers\Api\serviceApiController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Api\synchronizationController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,20 +20,32 @@ use App\Services\CoachServices;
 |
 */
 Route::get('/testAPI', [GoogleAuthController::class, 'test']);
-Route::get('/services', [serviceApiController::class, 'allServices'])->name('allCoachServices');
-Route::get('/coaches', [serviceApiController::class, 'allCoaches']);
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
 // Route::middleware('auth:sanctum')->group(function () {
-//     Route::get('/servicess', [ServiceApiController::class, 'allServices'])->name('allServices');
+    Route::controller(serviceApiController::class)->group(function () {
+        Route::get('/services', 'allServices');
+        Route::get('/coaches', 'allCoaches');
+        Route::post('/logout', 'logout'); // Logout route
+        Route::get('/single/service/{id}', 'singleServiceShow');
+        Route::get('/single/coach/{id}', 'singleCoachShow');
+    });
+
+    Route::controller(SearchController::class)->group(function () {
+        Route::post('/dashboard/search', 'dashboardSearch');
+        Route::post('/search/coaches', 'CoachesSearch');
+        Route::post('/search/services', 'ServicesSearch');
+        
+    });
+
+   //calls for synchronization
+    Route::controller(synchronizationController::class)->group(function () {
+        Route::get('/services/synchronization', 'servicesync');
+        Route::get('/coaches/synchronization', 'coachesync');
+        
+    });
+
+
 // });
-
-Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/servicess', [ServiceApiController::class, 'allServices'])->name('allServices');
-});
-
 
 
 Route::post('/login', [serviceApiController::class, 'login']);
@@ -50,7 +63,6 @@ Route::get('auth/facebook/redirect',[GoogleAuthController::class, 'redirectToFac
 Route::get('auth/facebook/callback', [GoogleAuthController::class, 'handleFacebookCallbackApi']);
 
 
-Route::middleware('auth:sanctum')->post('/logout', [serviceApiController::class, 'logout']);
 
 Route::get('auth/apple', [GoogleAuthController::class, 'redirectToApple']);
 Route::match(['get', 'post'], 'auth/apple/callback', [GoogleAuthController::class, 'handleAppleCallback']);

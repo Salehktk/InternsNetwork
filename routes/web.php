@@ -2,13 +2,14 @@
 
 use Spatie\FlareClient\View;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SheetCoachServiceController;
 use App\Http\Controllers\GoogleServiceController;
 use App\Http\Controllers\Api\GoogleAuthController;
-use Illuminate\Support\Facades\File;
+use App\Http\Controllers\synchronizationController;
+use App\Http\Controllers\SheetCoachServiceController;
 
 
 
@@ -31,10 +32,6 @@ Route::get('/clear', function () {
     Artisan::call('optimize:clear');
     return "Cleared";
 });
-// Route::get('/migration', function () {
-//     Artisan::call('migrate:fresh --seed');
-//     return "run successfully";
-// });
 
 Route::get('migrate', function () {
     Artisan::call('migrate');
@@ -57,7 +54,7 @@ Route::get('migrate-seed', function () {
 });
 
 
-// Route::get('/import-services-sheet', [SheetCoachServiceController::class, 'importServicesheetDirectly']);
+Route::get('/import-services-sheet', [SheetCoachServiceController::class, 'importServicesheetDirectly']);
 
 // Route::get('/', [CoachServicesController::class, 'index'])->name('home');
 
@@ -85,14 +82,20 @@ Route::get('/', function () {
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('superadmin/service/show', [ServiceController::class, 'show'])->name('serviceShow');
+    // Route::get('superadmin/service/show', [ServiceController::class, 'show'])->name('serviceShow');
    
 });
 
 
 
 Route::get('/logout', [GoogleServiceController::class, 'logout'])->name('logout');
-Route::get('/import-services', [SheetCoachServiceController::class, 'importServicesheet'])->name('importServicesheet');
+// Route::get('/import-services', [SheetCoachServiceController::class, 'importServicesheet'])->name('importServicesheet');
+
+//calls for synchronization
+Route::controller(synchronizationController::class)->group(function () {
+    Route::get('/services/synchronization', 'servicesync');
+    Route::get('/coaches/synchronization', 'coachesync');
+});
 Auth::routes();
 
 Route::group(['middleware' => ['auth', 'role:superadmin'], 'prefix' => 'superadmin' ], function () {

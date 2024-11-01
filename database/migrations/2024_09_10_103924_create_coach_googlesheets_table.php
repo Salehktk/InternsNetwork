@@ -13,33 +13,32 @@ return new class extends Migration
     {
         Schema::create('coach_googlesheets', function (Blueprint $table) {
             $table->id();
-
             $table->string('full_name')->nullable(); //
-            $table->text('specialties')->nullable(); //
+            $table->longText('specialties')->nullable(); //
             $table->string('category')->nullable(); //
-            $table->text('bio')->nullable(); //
-            $table->string('location')->nullable(); //
-            $table->string('fx')->nullable(); //
+            $table->longText('bio')->nullable(); //
+            $table->longText('location')->nullable(); //
+            $table->longText('fx')->nullable(); //
             $table->string('pay')->nullable(); //
-            $table->string('how_good')->nullable(); //
-            $table->string('responsive')->nullable(); //
+            $table->longText('how_good')->nullable(); //
+            $table->longText('responsive')->nullable(); //
             $table->string('on_whatsapp')->nullable(); //
             $table->string('linkedin_url')->nullable(); //
             $table->string('email')->nullable(); //
             $table->string('email2')->nullable(); //
             $table->string('whatsapp')->nullable(); //
-            $table->string('facetime_imessage')->nullable(); //
+            $table->longText('facetime_imessage')->nullable(); //
             $table->string('terms_confirmed')->nullable(); //
             $table->text('payment_details')->nullable(); //
-            $table->string('zelle_paypal_venmo')->nullable();  //
+            $table->longText('zelle_paypal_venmo')->nullable();  //
             $table->string('sort_code')->nullable(); //
             $table->string('account_number')->nullable(); //
             $table->string('account_holder')->nullable(); //
-            $table->text('name_alias')->nullable(); //
+            $table->longText('name_alias')->nullable(); //
             $table->text('bio_alias')->nullable(); //
-            $table->string('job_offers')->nullable(); //
-            $table->string('photo_ai')->nullable(); //
-            $table->string('resume')->nullable(); //
+            $table->longText('job_offers')->nullable(); //
+            $table->longText('photo_ai')->nullable(); //
+            $table->longText('resume')->nullable(); //
             $table->text('availability')->nullable();//
             $table->timestamps();
         });
