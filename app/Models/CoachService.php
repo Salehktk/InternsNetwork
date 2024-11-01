@@ -11,6 +11,11 @@ class CoachService extends Model
 
     protected $table = 'coach_service';
 
+    protected $fillable = [
+        'coach_id',
+        'service_id',
+    ];
+
 
     public function coaches()
     {
