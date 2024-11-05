@@ -50,7 +50,8 @@ Route::get('/testAPI', [GoogleAuthController::class, 'test']);
 
 Route::post('/login', [serviceApiController::class, 'login']);
 Route::post('/register', [serviceApiController::class, 'createUser']);
-// Route::post('/logout', [serviceApiController::class, 'logout']);
+
+
 
 Route::post('password/forgot', [ForgotPasswordController::class, 'sendResetLinkEmail']);
 Route::post('password/reset', [ResetPasswordController::class, 'reset']);
@@ -67,20 +68,5 @@ Route::get('auth/facebook/callback', [GoogleAuthController::class, 'handleFacebo
 Route::get('auth/apple', [GoogleAuthController::class, 'redirectToApple']);
 Route::match(['get', 'post'], 'auth/apple/callback', [GoogleAuthController::class, 'handleAppleCallback']);
 
-
-
 Route::get('/universal-link/test', [GoogleAuthController::class, 'handleTest']);
 
-
-    // Route::get('/dashboard', [serviceApiController::class, 'allServices'])->name('allCoachServices');
-
-
-// Route::middleware(['auth:sanctum'])->group(function () {
-    
-// });
-
-// Route::middleware(['auth:sanctum'])->group(function () {
-//     Route::get('/dashboard', function (Request $request) {
-//         dd('Incoming request:', $request->all());
-//     })->name('allCoachServices');
-// });

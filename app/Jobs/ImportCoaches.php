@@ -24,9 +24,9 @@ class ImportCoaches implements ShouldQueue
     // protected $spreadsheetId;
     protected  $spreadsheetId = '16GP46laLDNXehK0doJn5PBpoINGj6N-nq268ZlWHAMM';
 
-    public function __construct($spreadsheetId = null)
+    public function __construct()
     {
-        $this->spreadsheetId = $spreadsheetId;
+        // $this->spreadsheetId = $spreadsheetId;
     }
 
     /**

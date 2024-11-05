@@ -37,7 +37,7 @@ class LoginController extends Controller
         // dd('Current user roles: ', $user->getRoleNames()->toArray());
 
         if ($user->hasRole('superadmin')) {
-            return 'superadmin/service/show';
+            return route('admin.dashboard');
         } elseif ($user->hasRole('user')) {
             return route('users.dashboard'); 
         }

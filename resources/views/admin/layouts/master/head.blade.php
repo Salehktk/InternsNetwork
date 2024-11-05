@@ -1,8 +1,5 @@
 <head>
-    <link rel="icon" href="{{ asset('images/newlogo.png') }}">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Coaching Setup</title>
+
 
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
