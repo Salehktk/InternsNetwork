@@ -18,57 +18,62 @@ class SearchController extends Controller
     public function dashboardSearch(Request $request)
     {
         $query = $request->input('key_word');
-       
-        if($query){
+
+        if ($query) {
 
             $results = $this->searchService->SearchforDashboard($query);
             return response()->json([
                 'message' => 'success',
                 'results' => $results,
             ]);
+        } else {
+            $results = $this->searchService->SearchforDashboardWithoutQuery();
+            return response()->json([
+                'message' => 'success',
+                'results' => $results,
+            ]);
         }
-        return response()->json([
-            'message' => 'enter any keyword',
-        ]);
-       
     }
 
     public function CoachesSearch(Request $request)
     {
         $query = $request->input('key_word');
-       
-        if($query){
-        $results = $this->searchService->SearchforCoaches($query);
+
+        if ($query) {
+            $results = $this->searchService->SearchforCoaches($query);
 
 
-        return response()->json([
-            'message' => 'success',
-            'results' => $results,
-        ]);
-    }
-
-    return response()->json([
-        'message' => 'enter any keyword',
-    ]);
+            return response()->json([
+                'message' => 'success',
+                'results' => $results,
+            ]);
+        } else {
+            $results = $this->searchService->SearchforCoachesWithOutQuery();
+            return response()->json([
+                'message' => 'success',
+                'results' => $results,
+            ]);
+        }
     }
 
     public function ServicesSearch(Request $request)
     {
         $query = $request->input('key_word');
-       
-        if($query){
-        $results = $this->searchService->SearchforServices($query);
+
+        if ($query) {
+            $results = $this->searchService->SearchforServices($query);
 
 
-        return response()->json([
-            'message' => 'success',
-            'results' => $results,
-        ]);
-    }
-
-    return response()->json([
-        'message' => 'enter any keyword',
-    ]);
-
+            return response()->json([
+                'message' => 'success',
+                'results' => $results,
+            ]);
+        }else{
+            $results = $this->searchService->SearchforServicesWithoutQuery();
+            return response()->json([
+                'message' => 'success',
+                'results' => $results,
+            ]);
+        }
     }
 }
